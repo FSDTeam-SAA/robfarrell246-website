@@ -105,11 +105,16 @@ const LoginForm = () => {
         </div>
 
         <h3 className="text-2xl md:text-[32px] lg:text-[40px] font-bold text-[#131313] text-center leading-[120%] pt-3">
-          Welcome to Vision Before Lease Platform
+          Sign in to account
         </h3>
         <p className="text-base md:text-lg font-normal text-[#787878] leading-[150%] text-center pt-2">
           Commercial Retail Intelligence Platform
         </p>
+        <button type="button" className="auth-google-button">
+          <span className="auth-google-mark" aria-hidden="true">G</span>
+          Continue with Google
+        </button>
+        <div className="auth-divider" aria-hidden="true"><span>Or continue with email</span></div>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -152,15 +157,14 @@ const LoginForm = () => {
                       />
                       <button
                         type="button"
-                        className="absolute top-3.5 right-4"
+                        className="auth-password-toggle"
+                        onClick={() => setShowPassword((visible) => !visible)}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
                       >
                         {showPassword ? (
-                          <Eye className="text-[#787878]" onClick={() => setShowPassword(!showPassword)} />
+                          <Eye className="text-[#787878]" aria-hidden="true" />
                         ) : (
-                          <EyeOff
-                          className="text-[#787878]"
-                            onClick={() => setShowPassword(!showPassword)}
-                          />
+                          <EyeOff className="text-[#787878]" aria-hidden="true" />
                         )}
                       </button>
                     </div>
@@ -213,6 +217,10 @@ const LoginForm = () => {
             </div>
           </form>
         </Form>
+        <div className="auth-account-footer">
+          <p>Don&apos;t have an account yet? <Link href="/sign-up">Create account</Link></p>
+          <p>By continuing, you agree to the <Link href="/terms">Terms &amp; Conditions</Link> and <Link href="/privacy">Privacy Policy</Link></p>
+        </div>
       </div>
     </div>
   );

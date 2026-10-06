@@ -127,15 +127,14 @@ const ResetPasswordForm = () => {
                     />
                     <button
                       type="button"
-                      className="absolute top-3.5 right-4"
+                      className="auth-password-toggle"
+                      onClick={() => setShowPassword((visible) => !visible)}
+                      aria-label={showPassword ? "Hide new password" : "Show new password"}
                     >
                       {showPassword ? (
-                        <Eye className="text-[#787878]" onClick={() => setShowPassword(!showPassword)} />
+                        <Eye className="text-[#787878]" aria-hidden="true" />
                       ) : (
-                        <EyeOff
-                        className="text-[#787878]"
-                          onClick={() => setShowPassword(!showPassword)}
-                        />
+                        <EyeOff className="text-[#787878]" aria-hidden="true" />
                       )}
                     </button>
                   </div>
@@ -160,15 +159,14 @@ const ResetPasswordForm = () => {
                     />
                     <button
                       type="button"
-                      className="absolute top-3.5 right-4"
+                      className="auth-password-toggle"
+                      onClick={() => setConfirmShowPassword((visible) => !visible)}
+                      aria-label={confirmShowPassword ? "Hide confirm password" : "Show confirm password"}
                     >
                       {confirmShowPassword ? (
-                        <Eye className="text-[#787878]" onClick={() => setConfirmShowPassword(!confirmShowPassword)} />
+                        <Eye className="text-[#787878]" aria-hidden="true" />
                       ) : (
-                        <EyeOff
-                        className="text-[#787878]"
-                          onClick={() => setConfirmShowPassword(!confirmShowPassword)}
-                        />
+                        <EyeOff className="text-[#787878]" aria-hidden="true" />
                       )}
                     </button>
                   </div>
